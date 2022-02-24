@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import temperatureReducer from "./temperature";
+import weatherReducer from "./weather";
 
 const store = configureStore({
     reducer: {
-        temperature: temperatureReducer
+        weather: weatherReducer
     },
 });
 

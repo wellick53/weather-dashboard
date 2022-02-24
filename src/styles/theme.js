@@ -2,17 +2,15 @@ import { rem } from 'polished';
 
 export const colors = {
   blue: '#001489',
-  yellow: '#FEDD00',
+  juneBud: '#c5d86d',
   white: '#FFFFFF',
   black: '#000000',
-  black88: '#1F1F1F',
-  black80: '#333333',
-  black64: '#5C5C5C',
-  black32: '#ADADAD',
-  black16: '#D6D6D6',
-  black12: '#E0E0E0',
-  black8: '#EBEBEB',
-  dark: '#101214'
+  blackChoc: '#261C15',
+  babyPowder: '#f7f7f2',
+  paleSpringBud: '#e4e6c3',
+  orange: '#f05d23'
+
+
 }
 
 export const container = {

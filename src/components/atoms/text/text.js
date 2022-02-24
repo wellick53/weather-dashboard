@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
+import { rem  } from "polished";
+import { text, colors } from "../../../styles/theme";
 
 const Text = (props) => {
     const {
@@ -42,7 +44,7 @@ const Text = (props) => {
 
     return (
         <Atom as={tag} id={id} className={className} {...stylesProps}>
-            {childen}
+            {children}
         </Atom>
     )
 };
@@ -177,8 +179,8 @@ const Atom = styled.div`
   `}
 `;
 
-Text.PropTypes = {
-    tag: PropTypes.oneOf([
+Text.propTypes = {
+    tag: propTypes.oneOf([
         "h1",
         "h2",
         "h3",
@@ -191,20 +193,20 @@ Text.PropTypes = {
         "label",
         "strong",
     ]),
-    id: PropTypes.string,
-    className: PropTypes.string,
-    align: PropTypes.string,
-    uppercase: PropTypes.bool,
-    underline: PropTypes.bool,
-    noWrap: PropTypes.bool,
-    hyphens: PropTypes.bool,
-    ellipsis: PropTypes.number,
-    maxWidth: PropTypes.string,
-    opacity: PropTypes.number,
-    color: PropTypes.string,
-    weight: PropTypes.number,
-    children: PropTypes.any,
-    style: PropTypes.object,
+    id: propTypes.string,
+    className: propTypes.string,
+    align: propTypes.string,
+    uppercase: propTypes.bool,
+    underline: propTypes.bool,
+    noWrap: propTypes.bool,
+    hyphens: propTypes.bool,
+    ellipsis: propTypes.number,
+    maxWidth: propTypes.string,
+    opacity: propTypes.number,
+    color: propTypes.string,
+    weight: propTypes.number,
+    children: propTypes.any,
+    style: propTypes.object,
 };
 
 export default Text;
