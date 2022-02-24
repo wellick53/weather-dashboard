@@ -8,10 +8,6 @@ const Padding = styled.div`
     ${({ bottom }) => bottom && css`
         padding-bottom: ${bottom};
     `}
-
-    /* ${props => props.bottom && css`
-        padding-bottom: ${props.bottom};
-    `} */
 `;
 
 export default Padding;
