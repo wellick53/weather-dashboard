@@ -5,9 +5,19 @@ const Padding = styled.div`
         padding-top: ${top};
     `}
 
+    ${({ right }) => right && css`
+        padding-right: ${right};
+    `}
+
     ${({ bottom }) => bottom && css`
         padding-bottom: ${bottom};
     `}
+
+    ${({ left }) => left && css`
+        padding-left: ${left};
+    `}
+
+
 `;
 
 export default Padding;

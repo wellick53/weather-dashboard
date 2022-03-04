@@ -1,6 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { temperature: 0, city: "", country: ""};
+const initialState = { 
+                        temperature: 0, 
+                        city: "", 
+                        country: "", 
+                        icons: [],
+                        desciption: []
+                    
+                    };
 
 const weatherSlice = createSlice({
     name: 'weather',
@@ -14,6 +21,8 @@ const weatherSlice = createSlice({
             state.temperature = action.payload.temperature;
             state.city = action.payload.city;
             state.country = action.payload.country;
+            state.icons = action.payload.icons
+            state.description = action.payload.description
         },        
     } 
     })

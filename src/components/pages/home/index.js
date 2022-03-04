@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, updateData } from "../../../redux/weather";
 import styled from "styled-components";
@@ -13,7 +13,9 @@ const axios = require('axios');
 
 export default function Home() {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();    
+    const weatherIcons = [];
+    const description = [];
 
     function getWeatherData(lat, lon) {
         axios.get('http://api.openweathermap.org/data/2.5/weather', {
@@ -26,10 +28,15 @@ export default function Home() {
     })
         .then((res) => {
             console.log(res);
+            res.data.weather.map(item => weatherIcons.push(item.icon))
+            res.data.weather.map(item => description.push(item.description))
             dispatch(updateData({ temperature: res.data.main.temp,
                                     city: res.data.name, 
-                                    country: res.data.sys.country
+                                    country: res.data.sys.country,
+                                    icons: weatherIcons,
+                                    description: description
                                 }));
+                                                               
         })
         .catch((err) => {
             console.log(err);
@@ -60,7 +67,7 @@ export default function Home() {
             <Dashboard>
                 <LeftPanel />
                 <CenterPanel />
-                <RightPanel />
+                <RightPanel />                
             </Dashboard>            
         </Container>
     )
@@ -68,9 +75,8 @@ export default function Home() {
 
 const Dashboard = styled.div`
     display: flex;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
-    height: 90vh;
+    height: 100vh;
+    //width: 100vw;
     background-color: ${colors.juneBud};
     border-radius: 30px;
 

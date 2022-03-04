@@ -8,7 +8,8 @@ export const colors = {
   blackChoc: '#261C15',
   babyPowder: '#f7f7f2',
   paleSpringBud: '#e4e6c3',
-  orange: '#f05d23'
+  orange: '#f05d23',
+  grey: '#979998'
 
 
 }
