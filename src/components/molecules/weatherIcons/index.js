@@ -36,9 +36,7 @@ function WeatherIcons() {
                         <FontAwesomeIcon icon={faBinoculars} />
                         {(visibility/1000)+"km"}
                      </Icon>                    
-                 </Flex>
-                 
-                                 
+                 </Flex>                             
             </InnerContainer>           
         </div>
         

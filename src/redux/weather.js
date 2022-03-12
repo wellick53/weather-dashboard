@@ -7,8 +7,7 @@ const initialState = {
                         icons: [],
                         description: [],
                         windSpeed: 0,
-                        humidity: 0
-                    
+                        humidity: 0                    
                     };
 
 const weatherSlice = createSlice({
@@ -20,15 +19,17 @@ const weatherSlice = createSlice({
         },
         updateData(state, action) {
             console.log(action);
-            state.temperature = action.payload.temperature;
-            state.city = action.payload.city;
-            state.country = action.payload.country;
+            state.temperature = action.payload.temperature;            
             state.icons = action.payload.icons
             state.description = action.payload.description
             state.windSpeed = action.payload.windSpeed
             state.humidity = action.payload.humidity
             state.visibility = action.payload.visibility
-        },        
+        },
+        updateCityCountry(state, action) {
+            state.city = action.payload.city;
+            state.country = action.payload.country;
+        }        
     } 
     })
 
@@ -38,7 +39,7 @@ const weatherSlice = createSlice({
 const { actions, reducer } = weatherSlice
 
 // Extract and export each action creator by name
-export const { reset, updateData } = actions
+export const { reset, updateData, updateCityCountry } = actions
 
 // Export the reducer, either as a default or named export
 

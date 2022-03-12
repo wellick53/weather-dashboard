@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { reset, updateData } from "../../../redux/weather";
+import { reset, updateData, updateCityCountry } from "../../../redux/weather";
 import styled from "styled-components";
 import { colors } from "../../../styles/theme";
 
@@ -51,13 +51,26 @@ export default function Home() {
         });
     }
 
+    function getLocationName(lat, lon) {
+        axios.get(
+            `https://us1.locationiq.com/v1/reverse.php?key=pk.12c8d18c6c45693af152d0f52f2d1aa1&lat=${lat}&lon=${lon}&format=json`)
+            .then((res) => {
+                dispatch(updateCityCountry({
+                    city: res.data.address.town,
+                    country: res.data.address.country 
+                }))
+            })
+    }
+
     useEffect(() => {             
 
         getPosition()
             .then((position) => {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
+                console.log(lat, lon);
                 getWeatherData(lat, lon);
+                getLocationName(lat, lon);
             })
             .catch((err) => {
                 console.error(err.message);
