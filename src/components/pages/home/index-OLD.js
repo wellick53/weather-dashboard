@@ -18,25 +18,26 @@ export default function Home() {
     const description = [];
 
     function getWeatherData(lat, lon) {
-        axios.get('http://api.openweathermap.org/data/2.5/onecall?', {
+        axios.get('http://api.openweathermap.org/data/2.5/weather', {
         params: {
             lat: lat,
             lon: lon,
             units: 'metric',
-            appid: '3ea3a9f82043328777778a5be1dbd7d7'
+            appid: '82153655fb93771feb3ca6235649a3a0'
         }
     })
         .then((res) => {
             console.log(res);
-            res.data.current.weather.map(item => weatherIcons.push(item.icon))
-            res.data.current.weather.map(item => description.push(item.description))
-            
-            dispatch(updateData({ temperature: res.data.current.temp,                                    
+            res.data.weather.map(item => weatherIcons.push(item.icon))
+            res.data.weather.map(item => description.push(item.description))
+            console.log(res.data.main.humidity);
+            dispatch(updateData({ temperature: res.data.main.temp,
+                                    city: res.data.name, 
+                                    country: res.data.sys.country,
                                     icons: weatherIcons,
                                     description: description,
-                                    windSpeed: res.data.current.wind_speed,
-                                    humidity: res.data.current.humidity,
-                                    visibility: res.data.current.visibility
+                                    windSpeed: res.data.wind.speed,
+                                    humidity: res.data.main.humidity,
                                 }));
                                                                
         })

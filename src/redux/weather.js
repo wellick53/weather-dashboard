@@ -5,7 +5,9 @@ const initialState = {
                         city: "", 
                         country: "", 
                         icons: [],
-                        desciption: []
+                        description: [],
+                        windSpeed: 0,
+                        humidity: 0
                     
                     };
 
@@ -23,9 +25,14 @@ const weatherSlice = createSlice({
             state.country = action.payload.country;
             state.icons = action.payload.icons
             state.description = action.payload.description
+            state.windSpeed = action.payload.windSpeed
+            state.humidity = action.payload.humidity
+            state.visibility = action.payload.visibility
         },        
     } 
     })
+
+
 
 // Extract the action creators object and the reducer
 const { actions, reducer } = weatherSlice
